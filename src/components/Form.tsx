@@ -4,14 +4,18 @@ import TaskType from "../taskType";
 export function Form({ data, change, setData, setChange }: TaskType) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const newTask = {
-      id: new Date().getTime(),
-      name: change,
-    };
-
-    setData([...data, newTask]);
-    setChange("");
+    if (change != "") {
+  
+      const newTask = {
+        id: new Date().getTime(),
+        name: change,
+      };
+      
+      setData([...data, newTask]);
+      setChange("");
+    } else {
+      alert("Le formulaire ne peut pas etre vide!!")
+    }
     
   };
 
