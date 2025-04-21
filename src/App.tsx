@@ -17,9 +17,16 @@ function App() {
     const taskUpdate = taskCopy.filter((t) => t.id != id);
     setData(taskUpdate);
   }
-  const handleSubmit = () => {
-    
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const taskCopy = [...data];
+
+    const newdata = {
+      id: new Date().getTime(),
+      name: change
+    }
+    taskCopy.push(newdata);
+    setData(taskCopy)
   };
   return (
     <div className="">
@@ -46,7 +53,7 @@ function App() {
             type="text"
             className="border"
             placeholder="Entrer une tache"
-            onChange={(e) => console.log(e.target.value)}
+            onChange={(e) => setChange(e.target.value)}
           />
           <input type="submit" value="Valider" />
         </form>
