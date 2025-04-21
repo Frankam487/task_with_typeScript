@@ -1,14 +1,5 @@
-interface Task {
-  id: number;
-  name: string;
-}
+import TaskProps from "../taskProps";
 
-type TaskProps = {
-  index: number;
-  task: Task;
-  data: Task[];
-  setData: React.Dispatch<React.SetStateAction<Task[]>>;
-};
 
 export function Task({ index, task, setData, data }: TaskProps) {
   const handleClick = (id: number) => {
